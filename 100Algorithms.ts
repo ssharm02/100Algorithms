@@ -132,3 +132,52 @@ return inputShifted.join('');
 }
 
 console.log(alphabetShift('Sarthak'));
+
+function alphaSubSequence(s: string): boolean {
+
+    const chars: string[] = s.split('');
+    const charValues: number[] = [];
+
+    chars.forEach((char: string) => {
+        charValues.push(char.charCodeAt(0))
+    });
+
+    //if statement detects false values
+    if (new Set(charValues).size != charValues.length) {
+        return false;
+    }
+
+    for (let i = 0; i < charValues.length; i++) {
+        
+        if(charValues[i] >= charValues[i + 1]) {
+            return false;
+        }
+    }
+
+    return true;
+
+}
+
+console.log(alphaSubSequence('effg'));
+console.log(alphaSubSequence('cdce'));
+console.log(alphaSubSequence('ace'));
+console.log(alphaSubSequence('zab'))
+
+//add even and odd in an array
+function alteratingSums(a: number[]): number[] {
+    let evenSum = 0;
+    let oddSum = 0;
+
+    a.forEach((element, index) => {
+        if(index % 2 === 0) {
+            evenSum += element;
+        } else {
+            oddSum += element;
+        }
+    })
+
+    return [evenSum, oddSum];
+}
+
+
+console.log(alteratingSums([50,60,60, 45, 70]))
