@@ -89,3 +89,46 @@ function allLongestString(inputArray: string[]): string[] {
 }
 
 console.log(allLongestString(['abc', 'adafad', 'sadfdasf']))
+
+
+//check if array values are increasing or decreasing
+function allmostIncreasingSeq(sequence: number[]): boolean {
+
+    let count = 0;
+
+    for (let i = 0; i < sequence.length; i++) {
+        if(sequence[i] <= sequence[i-1]) {
+            count++;
+            if(sequence[i] <= sequence[i-2] &&
+                sequence[i+1] <= sequence[i-1]) {
+                return false;
+            }
+        }
+    }
+
+    return count <= 1;
+}
+
+console.log(allmostIncreasingSeq(1,3,2,1);
+
+
+function alphabetShift(inputString: string): string {
+    const alphabet: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+let inputShifted = inputString.split('');
+console.log(inputShifted);
+
+for (let i = 0; i < inputShifted.length; i++) {
+let index = 0;
+
+if(inputShifted[i] !== 'z') {
+    index = alphabet.indexOf(inputShifted[i]) + 1;
+}
+inputShifted[i] = alphabet[index];
+}
+
+return inputShifted.join('');
+}
+
+console.log(alphabetShift('Sarthak'));
