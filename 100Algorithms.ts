@@ -70,3 +70,22 @@ function adjacementElement(inputArray: number[]): number {
 }
 
 console.log(adjacementElement([3,6,-2,-5,7,3]));
+
+//largest string in an array of string
+
+function allLongestString(inputArray: string[]): string[] {
+    let longestLength = 0;
+    let longestWords = [];
+    inputArray.forEach((word: string) => {
+        longestLength = longestLength < word.length ? word.length : longestLength;
+    })
+
+    inputArray.forEach((word: string) => {
+        if (word.length === longestLength) {
+            longestWords.push(word);
+        }
+    })
+    return longestWords;
+}
+
+console.log(allLongestString(['abc', 'adafad', 'sadfdasf']))
