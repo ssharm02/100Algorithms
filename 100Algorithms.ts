@@ -181,3 +181,62 @@ function alteratingSums(a: number[]): number[] {
 
 
 console.log(alteratingSums([50,60,60, 45, 70]))
+
+function areEquallyStrong(yourLeft: number, yourRight: number, friendLeft: number, friendRight: number): boolean {
+
+    const yourWeakest = yourLeft <= yourRight ? yourLeft : yourRight;
+    const yourStrongest = yourLeft >= yourRight ? yourLeft : yourRight;
+    const friendsWeakest = friendLeft <= friendRight ? friendLeft : friendRight;
+    const friendsStrongest = friendLeft >= friendRight ? friendLeft : friendRight;
+
+    return (yourStrongest === friendsStrongest && yourWeakest === friendsWeakest)
+
+}
+
+console.log(areEquallyStrong([10,15,15,10]))
+console.log(areEquallyStrong([15,10,15,10]))
+console.log(areEquallyStrong(15,10,15,9))
+
+function areSimilar(a: number[], b: number[]): boolean {
+
+    const c: number[] = [];
+    let d: number[] = [];
+
+    if (a.toString() === b.toString()) {
+        return true;
+    } 
+    for (let i = 0; i < a.length; i++) {
+        if(a[i] !== b[i]) {
+            c.push(a[i]);
+            d.push(b[i]);
+        }
+    }
+
+    d = d.reverse();
+
+    if(c.length === 2 && (c.toString() === d.toString())) {
+        return true;
+    } 
+
+    return false;
+
+}
+
+console.log(areSimilar([1,2,3], [1,2,3]));
+console.log(areSimilar([1,2,3], [2,1,3]))
+
+function arrayChat(inputArray: number[]) : number {
+    let count = 0;
+
+    for (let i = 0; i < inputArray.length; i++) {
+        if(inputArray[i] >= inputArray[i+1]) {
+            const difference  = (inputArray[i] + 1) - inputArray[i + 1];
+            inputArray[i + 1 ] =  inputArray[i] + 1;
+            console.log(inputArray)
+            count += difference;
+        }
+    }
+    return count;
+}
+
+console.log(arrayChat([1,1,1]));
