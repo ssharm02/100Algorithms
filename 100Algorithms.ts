@@ -240,3 +240,102 @@ function arrayChat(inputArray: number[]) : number {
 }
 
 console.log(arrayChat([1,1,1]));
+
+var cars = [
+    {
+        model: 'Toyota', price: 144,
+    },
+    {
+        model: 'Camaro', price: 4452232
+    }
+];
+var prices = cars.map(function(car) {
+    return car.price;
+})
+
+console.log(prices)
+
+var trips = [
+    { distance: 34, time: 10, quantity: 200, type: 'car' },
+    { distance: 90, time: 50, quantity: 2300, type: 'truck' },
+    { distance: 59, time: 25, quantity: 2030, type: 'bus' }
+  ];
+  
+  var speeds;
+  
+  var speeds = trips.map(function(e) {
+      return e.distance / e.time;
+  })
+
+ var x = trips.filter(function(e) {
+     return e.type === 'car' && e.quantity > 100 && e.distance > 30
+ })
+ console.log(x)
+
+ var accounts = [
+    { balance: -10 },
+    { balance: 12 },
+    { balance: 0 }
+  ];
+  
+  var account;
+  
+  account = accounts.filter((findBalance) => {
+      return findBalance.balance === 12;
+  })
+  console.log(account)
+
+  let xx = [1,2,30,40]
+
+  const yy = xx.reduce(function(e, n) {
+    
+    return e + n;
+  }, 0);
+
+  console.log(yy)
+
+  var trips = [{ distance: 34 }, { distance: 12 } , { distance: 1 }];
+
+  var totalDistance;
+  
+  totalDistance = trips.reduce(function(previous, trip){
+    return previous + trip.distance;
+}, 0); 
+console.log(totalDistance)
+
+function count(targetString) {
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+    let number = 0;
+
+    for (let i = 0; i < targetString.length; i++) {
+        if (vowels.includes(targetString[i])) {
+            number++;
+        }
+    }
+    console.log(number)
+    return number;
+}
+count('sarthakisthebest')
+
+function addNums(...numbers) {
+    return numbers.reduce((sum, number) => {
+        return sum+ number;
+    },0)
+}
+
+console.log(addNums(3,2,4,5,6,32,3,23423,234))
+
+const defaultColors = ['red', 'green']
+const userFavs = ['blue', 'yellow']
+
+let xxx =[...defaultColors, ...userFavs]
+console.log(xxx)
+
+function validateShoppingList(...items) {
+    if (items.indexOf('milk' < 0)) {
+        return ['milk', ...items];
+    }
+    return items;
+}
+console.log(validateShoppingList('orange'));
