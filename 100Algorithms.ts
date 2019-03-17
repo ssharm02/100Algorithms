@@ -569,3 +569,59 @@ function domainType(domains) {
 }
 const domains = ["en.wiki.org", "codefights.net", "happy.net", "code.info"];
 domainType(domains); //[ 'organizat
+
+function encloseInBrackets(inputString: string): string {
+    return `(${inputString})`
+}
+
+console.log(encloseInBrackets('sarthak'))
+
+//check to see if a num contains all even digits or not
+function evenDigitsOnly(num: number): boolean {
+    const digits = num.toString().split('');
+
+    return digits.every((digit) =>
+        parseInt(digit) % 2 === 0);
+}
+
+console.log(evenDigitsOnly(248622));
+console.log(evenDigitsOnly(642386));
+
+function extractEachKth(inputArray: number[], k: number): number[] {
+    return inputArray.filter((element, index) => (index + 1) % k !== 0);
+}
+
+console.log(extractEachKth([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3))
+
+function factorializeNumber(num: number): number {
+    let total = 1;
+
+    for (let i = 1; i <= num; i++) {
+        total *= i;
+    }
+    return total;
+}
+
+console.log(factorializeNumber(5));
+console.log(factorializeNumber(10));
+
+function stolenLunch(note: string): string {
+    const noteArr: string[] = note.split('');
+    let translatedMessage = '';
+    const dictionary = {
+        "0": "a", "1": "b", "2": "c", "3": "d", "4": "e", "5": "f", "6": "g", "7": "h", "8": "i", "9": "j",
+        "a": "0", "b": "1", "c": "2", "d": "3", "e": "4", "f": "5", "g": "6", "h": "7", "i": "8", "j": "9",
+    };
+
+    for (let char of noteArr) {
+        if (dictionary.hasOwnProperty(char)) {
+            console.log(char)
+            console.log(dictionary[char])
+            translatedMessage += dictionary[char];
+        } else {
+            translatedMessage += char;
+        }
+    }
+    return translatedMessage;
+}
+console.log(stolenLunch("you'll n4v4r 6u4ss 8t: cdja"));
