@@ -339,3 +339,233 @@ function validateShoppingList(...items) {
     return items;
 }
 console.log(validateShoppingList('orange'));
+
+function depositProfit(deposit: number, rate: number, threshold: number): number {
+    let year = 0;
+    let accountBal = deposit;
+    while (threshold > deposit) {
+        accountBal += accountBal * (rate / 100);
+        year++;
+    }
+
+    return year;
+}
+
+console.log(depositProfit(100, 20, 170));
+
+//count unique strings 
+function differentSymbolsNaive(s: string): number {
+    const uniqueChars: string[] = [];
+    const inputChars: string[] = s.split('');
+
+    inputChars.forEach((char) => {
+        if (!uniqueChars.includes(char)) {
+            uniqueChars.push(char)
+        }
+    })
+
+    return uniqueChars.length;
+}
+
+console.log(differentSymbolsNaive('cabca'))
+
+//count unique strings 
+function differentSymbolsNaive(s: string): number {
+    const uniqueChars = {};
+    const inputArray: string[] = s.split('');
+
+    inputArray.forEach((char) => {
+        uniqueChars[char] = 1;
+    });
+
+    return Object.keys(uniqueChars).length;
+}
+
+console.log(differentSymbolsNaive('cabca'))
+
+//count unique strings 
+function differentSymbolsNaive(s: string): number {
+    const uniqueChars = new Set();
+
+    const inputChars = s.split('');
+
+    inputChars.forEach((chars) => {
+        uniqueChars.add(chars);
+    });
+
+
+    return uniqueChars.size;
+}
+
+console.log(differentSymbolsNaive('cabca'))
+
+function checkPalindrome(inputString: string): boolean {
+    const originalLowerCase = inputString.toLowerCase();
+    let flipWord = originalLowerCase.split('').reverse().join('');
+
+    if (originalLowerCase === flipWord) {
+        return true;
+    }
+    return false;
+
+}
+
+console.log(checkPalindrome('sarthak'))
+console.log(checkPalindrome('eye'))
+
+function chunkyMonkey(arr: any[], size: number): any[][] {
+
+    const nestedArr = [];
+    let count = 0;
+
+    while (count < arr.length) {
+        nestedArr.push(arr.slice(count, count += size))
+    }
+
+    return nestedArr;
+}
+
+console.log(chunkyMonkey(["a", "b", "c", "d"], 2));
+console.log(chunkyMonkey([1, 2, 3, 4, 5, 6], 4));
+
+function circleOfNumbers(n: number, firstNumber: number): number {
+    const numArray = [];
+    const halfWay = n / 2;
+
+    for (let i = 0; i < n; i++) {
+        numArray.push(i);
+    }
+    if (firstNumber < halfWay) {
+        return numArray[firstNumber + halfWay]
+    }
+
+    return numArray[firstNumber - halfWay];
+}
+
+console.log(circleOfNumbers(10, 2));
+
+function companyBotStrategy(trainingData: number[][]): number {
+    let time = 0;
+    let correctness = 0;
+
+    trainingData.forEach((data: number[]) => {
+        if (data[1] === 1) {
+            time += data[0];
+            correctness += data[1];
+        }
+    });
+
+    return time / correctness || 0;
+}
+
+console.log(companyBotStrategy([[3, 1], [6, 1], [4, 1], [5, 1]]));
+console.log(companyBotStrategy([[4, 1], [6, -1], [0, 0], [6, 1]]));
+console.log(companyBotStrategy([[4, -1], [0, 0], [5, -1]]));
+
+function compareIntegers(a: string, b: string): string {
+
+    return parseInt(a) > parseInt(b) ? 'greater' : parseInt(a) < parseInt(b) ? 'less' : 'equal';
+
+}
+
+console.log(compareIntegers('12', '13'));
+console.log(compareIntegers('875', '799'));
+console.log(compareIntegers('1000', '1000'))
+
+function confirmEnding(str: string, target: string) {
+    const start = str.length - target.length;
+
+
+    return str.substr(start) === target;
+}
+
+console.log(confirmEnding("Abstraction", "action"));
+console.log(confirmEnding("Open sesame", "pen"));
+
+//check for duplicates
+function containsDuplicates(a: number[]): boolean {
+    a = a.sort((a, b) => {
+        return a - b;
+    });
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] === a[i + 1]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+console.log(containsDuplicates([1, 2, 3, 1]));
+console.log(containsDuplicates([3, 1])
+
+//change temp
+
+function celsiusToFahrenheit(celcius: number): number {
+        return celcius * 9 / 5 + 32;
+    }
+
+console.log(celsiusToFahrenheit(-30));
+console.log(celsiusToFahrenheit(0))
+
+function converString(s: string, t: string): boolean {
+    let word = '';
+    let tIndex = 0;
+
+    const sArr: string[] = s.split('');
+
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === t[tIndex]) {
+            word += word.concat(s[i]);
+            tIndex++;
+
+            if (word === t) {
+                return true;
+            }
+        }
+    }
+
+
+    return false;
+}
+
+console.log(converString('ceoydefthf5iyg5hyts', 'codefights'));
+console.log(converString('abbdyca', 'abcd'))
+
+function domainType(domains: string[]): string[] {
+    const domainType: string[] = [];
+
+    for (let i = 0; i < domains.length; i++) {
+        const domain = domains[i].split('.');
+        const lastDomain = domain[domain.length - 1];
+
+        if (lastDomain === 'org') {
+            domainType.push('organization')
+        } else if (lastDomain === 'com') {
+            domainType.push('commercial')
+        } else if (lastDomain === 'net') {
+            domainType.push('network')
+        } else if (lastDomain === 'info') {
+            domainType.push('information')
+        }
+
+    }
+    return domainType;
+}
+
+console.log(domainType(["en.wiki.org", "codefights.com", "happy.net", "code.info"]))
+
+function domainType(domains) {
+    const obj = {
+        org: 'organization',
+        com: 'commercial',
+        net: 'network',
+        info: 'information'
+    };
+    const dType = [];
+    for (let domain of domains) {
+        dType.push(obj[domain.match(/(?<=\.)\w+$/g) + '']);
+    }
+    return dType;
+}
+const domains = ["en.wiki.org", "codefights.net", "happy.net", "code.info"];
+domainType(domains); //[ 'organizat
