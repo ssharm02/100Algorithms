@@ -12,7 +12,7 @@ console.log(absoluteValue([2,4,7,6,6,8]));
 function addNum(a: number, b: number) : number {
     return a + b;
 }
-
+//Add any number of elements passed to the method
 function addAllNums(...param: []) : number {
     let total = 0;
 
@@ -41,9 +41,8 @@ function addBorder(picture: string[]) : any {
     return picture;
 }
 
-//Add two numbers 
 console.log(addBorder(["abc"]))
-
+//Add two digits passed to a method
 function addTwoDigits(n: any) : number {
     const nums = n.toString().split('');
     console.log(nums)
@@ -57,12 +56,13 @@ console.log(addTwoDigits(23));
 
 //return largest product in an array
 function adjacementElement(inputArray: number[]): number {
-
+// assign the largest product to 0 and 1st elements of the array
     let largestProduct = inputArray[0] * inputArray[1];
-
+//skip the first and last element in the array in the for loop
     for (let i = 1; i < inputArray.length -1; i++) {
+//multiply product in the for loop
         const product = inputArray[i] * inputArray[i + 1];
-        
+        // javascript ternary operator to return the largest product
         largestProduct = largestProduct < product ? product : largestProduct;
     }
 
@@ -74,12 +74,15 @@ console.log(adjacementElement([3,6,-2,-5,7,3]));
 //largest string in an array of string
 
 function allLongestString(inputArray: string[]): string[] {
+    //initialize variable to count the logest word
     let longestLength = 0;
+    //initialize an array that will hold the largest
     let longestWords = [];
+    //forEach loop counts the length of each word in the array and it assigns the longest word to longestLength variable
     inputArray.forEach((word: string) => {
         longestLength = longestLength < word.length ? word.length : longestLength;
     })
-
+    //returns the longest word from the inputString
     inputArray.forEach((word: string) => {
         if (word.length === longestLength) {
             longestWords.push(word);
@@ -92,6 +95,9 @@ console.log(allLongestString(['abc', 'adafad', 'sadfdasf']))
 
 
 //check if array values are increasing or decreasing
+/*
+Review this algorithm
+*/
 function allmostIncreasingSeq(sequence: number[]): boolean {
 
     let count = 0;
@@ -109,15 +115,14 @@ function allmostIncreasingSeq(sequence: number[]): boolean {
     return count <= 1;
 }
 
-console.log(allmostIncreasingSeq(1,3,2,1);
+console.log(allmostIncreasingSeq([1,3,2,1]));
 
 
 function alphabetShift(inputString: string): string {
     const alphabet: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
+//convert the inputstring to an array of chracters
 let inputShifted = inputString.split('');
-console.log(inputShifted);
 
 for (let i = 0; i < inputShifted.length; i++) {
 let index = 0;
