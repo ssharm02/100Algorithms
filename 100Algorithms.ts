@@ -23,7 +23,6 @@ function addAllNums(...param: []) : number {
     return total;
 }
 console.log(addNum(3,5));
-
 console.log(addAllNums(1,2,34,56));
 
 //add border to array strings
@@ -43,13 +42,17 @@ function addBorder(picture: string[]) : any {
 
 console.log(addBorder(["abc"]))
 //Add two digits passed to a method
-function addTwoDigits(n: any) : number {
-    const nums = n.toString().split('');
-    console.log(nums)
-    return nums.reduce((a: string, b: string) => {
-        return parseInt(a) + parseInt(b);
+function addTwoDigits(n: any): number {
+    let numArr = n.toString().split('');
+    //return parseInt(numArr[0]) + parseInt(numArr[1]);
+
+    return numArr.reduce((a: string, b: string) => {
+        return parseInt(a) + parseInt(b)
     })
 }
+
+console.log(addTwoDigits(29))
+
 
 console.log(addTwoDigits(23));
 
@@ -74,24 +77,26 @@ console.log(adjacementElement([3,6,-2,-5,7,3]));
 //largest string in an array of string
 
 function allLongestString(inputArray: string[]): string[] {
-    //initialize variable to count the logest word
     let longestLength = 0;
-    //initialize an array that will hold the largest
     let longestWords = [];
-    //forEach loop counts the length of each word in the array and it assigns the longest word to longestLength variable
+
     inputArray.forEach((word: string) => {
         longestLength = longestLength < word.length ? word.length : longestLength;
-    })
-    //returns the longest word from the inputString
-    inputArray.forEach((word: string) => {
-        if (word.length === longestLength) {
-            longestWords.push(word);
+
+        if (longestLength === word.length) {
+            longestWords.push(word)
+            console.log(word)
         }
-    })
+    });
+
+
+
+    console.log(longestLength)
+
     return longestWords;
 }
 
-console.log(allLongestString(['abc', 'adafad', 'sadfdasf']))
+console.log(allLongestString(['abc', "aa", "ad", "vcd", "aba"]))
 
 
 //check if array values are increasing or decreasing
@@ -123,11 +128,13 @@ function alphabetShift(inputString: string): string {
 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 //convert the inputstring to an array of chracters
 let inputShifted = inputString.split('');
-
+// iterate through the inputShifted char array
 for (let i = 0; i < inputShifted.length; i++) {
+// initialize a variable index inside the for loop
 let index = 0;
-
+//as long as the current character in teh inputshifted array is NOT z
 if(inputShifted[i] !== 'z') {
+    //
     index = alphabet.indexOf(inputShifted[i]) + 1;
 }
 inputShifted[i] = alphabet[index];
@@ -158,7 +165,7 @@ function alphaSubSequence(s: string): boolean {
             return false;
         }
     }
-
+0
     return true;
 
 }
